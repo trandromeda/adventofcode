@@ -1,3 +1,5 @@
+// credit to https://github.com/NiXXeD/adventofcode/blob/master/2016/day2/part2.js
+
 const fs = require('fs');
 
 let keypad = [
@@ -26,7 +28,7 @@ fs.readFile('day2input.txt', 'utf8', (err, data) => {
         // check if the new coordinates in n make sense - if they are invalid they will return
         // undefined, and the following if statement will return true. Don't change n ie set it back to the last position
       if ( !keypad[n[0]] || !keypad[n[0]][n[1]]) n = a
-        // if the position is valid, n becomes the new accumulator
+        // n becomes the new accumulator, which is either the previous value or a new one
       return n
     }, pos);
   }) // answer returns the set of coords cooresponding to the numbers/letters
@@ -34,12 +36,3 @@ fs.readFile('day2input.txt', 'utf8', (err, data) => {
 
   console.log(answer)
 })
-
-
-
-//  2      1
-//  1    2 3 4
-//  0  5 6 7 8 9
-// -1    A B C
-// -2      D
-//  * -2-1 0 1 2
